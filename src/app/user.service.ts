@@ -23,14 +23,11 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl)
-    .pipe(
-      tap(users => this.log('fetched users')),
-      catchError(this.handleError('getUser', []))
-    );
+    .pipe(map(data => data));
   }
 
   createUser(user: User): Observable<any> {
-    return this.http.post(`${this.usersUrl}`, user);
+    return this.http.post<User>(this.usersUrl, user, httpOptions);
   }
 
 }

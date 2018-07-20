@@ -22,4 +22,13 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers()
     .subscribe(users => this.users = users);
   }
+
+  createUser(username: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.userService.createUser({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
 }

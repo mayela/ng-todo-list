@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  public newUser: User = new User()
+  public newUser: User = new User();
   users: User[];
 
   constructor(private userService: UserService) { }
@@ -30,4 +30,5 @@ export class UsersComponent implements OnInit {
       this.users.push(user);
       this.newUser = new User(); });
   }
+
 }

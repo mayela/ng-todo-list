@@ -26,8 +26,18 @@ export class UserService {
     .pipe(map(data => data));
   }
 
-  createUser(user: User): Observable<any> {
+  createUser(user: User): Observable<User> {
     return this.http.post<User>(this.usersUrl, user, httpOptions);
   }
+
+  getUser(id: number): Observable<User> {
+    const url = `${this.usersUrl}/${id}`;
+    return this.http.get<User>(url);
+}
+
+  updateUser(id: number, user: User): Observable<any> {
+    const url = `${this.usersUrl}/${id}`;
+    return this.http.put(url, user, httpOptions);
+}
 
 }

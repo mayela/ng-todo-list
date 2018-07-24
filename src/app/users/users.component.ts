@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  public newUser: User = new User();
   users: User[];
 
   constructor(private userService: UserService) { }
@@ -23,12 +24,11 @@ export class UsersComponent implements OnInit {
     .subscribe(users => this.users = users);
   }
 
-  createUser(username: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.userService.createUser({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
+  createUser(): void {
+    this.userService.createUser(this.newUser)
+    .subscribe(user => {
+      this.users.push(user);
+      this.newUser = new User(); });
   }
+
 }

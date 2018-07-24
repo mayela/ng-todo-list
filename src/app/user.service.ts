@@ -26,7 +26,7 @@ export class UserService {
     .pipe(map(data => data));
   }
 
-  createUser(user: User): Observable<any> {
+  createUser(user: User): Observable<User> {
     return this.http.post<User>(this.usersUrl, user, httpOptions);
   }
 

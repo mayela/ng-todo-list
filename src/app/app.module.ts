@@ -15,6 +15,7 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 
 import { UserService } from './user.service';
+import { TaskService } from './task.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { UserService } from './user.service';
     NgbModule.forRoot()
   ],
   providers: [
-    UserService
+    UserService,
+    TaskService
   ],
   bootstrap: [AppComponent]
 })

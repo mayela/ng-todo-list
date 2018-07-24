@@ -1,3 +1,7 @@
-<p>
-  tasks works!
-</p>
+<ul class="tasks">
+  <li *ngFor="let task of tasks">
+      <p>{{task._id}}</p>
+      <p>{{task.title}}</p>
+      <p>{{task.description}}</p>
+  </li>
+</ul>

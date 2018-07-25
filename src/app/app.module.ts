@@ -15,7 +15,10 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 
 import { UserService } from './user.service';
+import { TaskService } from './task.service';
 
+
+import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,10 +32,12 @@ import { UserService } from './user.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
-    UserService
+    UserService,
+    TaskService
   ],
   bootstrap: [AppComponent]
 })

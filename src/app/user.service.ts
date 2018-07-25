@@ -30,7 +30,7 @@ export class UserService {
     return this.http.post<User>(this.usersUrl, user, httpOptions);
   }
 
-  getUser(id: number): Observable<User> {
+  getUser(id: String): Observable<User> {
     const url = `${this.usersUrl}/${id}`;
     return this.http.get<User>(url);
 }

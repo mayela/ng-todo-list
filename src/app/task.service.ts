@@ -25,4 +25,19 @@ export class TaskService {
     return this.http.get<Task[]>(this.tasksUrl)
     .pipe(map(data => data));
   }
+
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.tasksUrl, task, httpOptions);
+  }
+
+  getTask(id: String): Observable<Task> {
+    const url = `${this.tasksUrl}/${id}`;
+    return this.http.get<Task>(url);
+}
+
+  updateTask(id: String, task: Task): Observable<any> {
+    const url = `${this.tasksUrl}/${id}`;
+    return this.http.put(url, task, httpOptions);
+  }
+  
 }

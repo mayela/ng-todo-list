@@ -10,6 +10,7 @@ import { TaskService } from '../task.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
+  public newTask: Task = new Task();
   tasks: Task[];
 
   constructor(private taskService: TaskService) { }
@@ -21,5 +22,12 @@ export class TasksComponent implements OnInit {
   getTasks(): void {
     this.taskService.getTasks()
     .subscribe(tasks => this.tasks = tasks);
+  }
+
+  createTask(): void {
+    this.taskService.createTask(this.newTask)
+    .subscribe(task => {
+      this.tasks.push(task);
+      this.newTask = new Task(); });
   }
 }

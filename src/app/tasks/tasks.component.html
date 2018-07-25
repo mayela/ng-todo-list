@@ -5,3 +5,18 @@
       <p>{{task.description}}</p>
   </li>
 </ul>
+
+<form>
+  <div class="form-row">
+
+    <div class="col-md-5">
+      <input type="text" name="title" id="title" [(ngModel)]="newTask.title" placeholder="Title" class="form-control">
+    </div>
+    <div class="col-md-5">
+      <input type="text" name="description" id="description" [(ngModel)]="newTask.description" placeholder="Description" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary" (click)="createTask()">Crear</button>
+    </div>
+  </div>
+</form>

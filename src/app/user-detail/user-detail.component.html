@@ -1,3 +1,17 @@
-<p>
-  user-detail works!
-</p>
+<form>
+  <div class="form-row">
+
+    <div class="col-md-5">
+      <input type="text" name="username" id="username" [(ngModel)]="user.username" placeholder="Username" class="form-control">
+    </div>
+    <div class="col-md-5">
+      <input type="text" name="first_name" id="first_name" [(ngModel)]="user.first_name" placeholder="First name" class="form-control">
+    </div>
+    <div class="col-md-5">
+      <input type="text" name="last_name" id="last_name" [(ngModel)]="user.last_name" placeholder="Last name" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary" (click)="updateUser()">Actualizar</button>
+    </div>
+  </div>
+</form>

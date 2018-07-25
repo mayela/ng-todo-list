@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
+  user: User;
 
   constructor(private route: ActivatedRoute, private userService: UserService) { }
 
@@ -20,9 +21,8 @@ export class UserDetailComponent implements OnInit {
 
   getUser() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.getUser(id).subscribe(data => {
-      console.log(data);
-    });
+    this.userService.getUser(id)
+    .subscribe(user => this.user = user);
   }
 
 }

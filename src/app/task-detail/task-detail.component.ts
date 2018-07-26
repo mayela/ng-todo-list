@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 import { Task } from '../task';
 import { TaskService } from '../task.service';
@@ -16,7 +16,7 @@ export class TaskDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private taskService: TaskService,
-    private location: Location
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(["tasks"]);
   }
 
   getTask() {

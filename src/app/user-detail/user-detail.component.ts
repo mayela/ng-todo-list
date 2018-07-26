@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 import { User } from '../user';
@@ -17,7 +16,7 @@ export class UserDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private location: Location
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,7 +24,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(["users"]);
   }
 
   getUser() {

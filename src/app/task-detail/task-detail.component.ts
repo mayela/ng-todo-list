@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 import { Task } from '../task';
 import { TaskService } from '../task.service';
@@ -13,10 +13,18 @@ import { TaskService } from '../task.service';
 export class TaskDetailComponent implements OnInit {
   task: Task;
 
-  constructor(private route: ActivatedRoute, private taskService: TaskService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private taskService: TaskService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
     this.getTask();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   getTask() {
@@ -29,6 +37,12 @@ export class TaskDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.taskService.updateTask(id, this.task)
       .subscribe(task => this.task = task);
+  }
+
+  deleteTask(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.taskService.deleteTask(id)
+    .subscribe(() => this.goBack());
   }
 
 }

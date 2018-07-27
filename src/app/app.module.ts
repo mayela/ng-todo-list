@@ -18,7 +18,16 @@ import { UserService } from './user.service';
 import { TaskService } from './task.service';
 
 
-import { AppRoutingModule }     from './app-routing.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
+
+import { AppRoutingModule } from './app-routing.module';
+
+
+import { DepartmentsComponent } from './departments/departments.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { DepartmentService } from './department.service';
 
 @NgModule({
   declarations: [
@@ -26,18 +35,24 @@ import { AppRoutingModule }     from './app-routing.module';
     UsersComponent,
     UserDetailComponent,
     TasksComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    DepartmentsComponent,
+    DepartmentDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [
     UserService,
-    TaskService
+    TaskService,
+    DepartmentService
   ],
   bootstrap: [AppComponent]
 })

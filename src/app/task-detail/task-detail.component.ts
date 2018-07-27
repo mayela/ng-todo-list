@@ -24,7 +24,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(["tasks"]);
+    this.router.navigate(['tasks']);
   }
 
   getTask() {

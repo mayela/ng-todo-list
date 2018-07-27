@@ -1,0 +1,14 @@
+<form *ngIf="department">
+  <div class="form-row">
+
+    <div class="col-md-5">
+      <input type="text" name="name" id="name" [(ngModel)]="department.name" placeholder="Name" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary" (click)="updateDepartment()">Actualizar</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="deleteDepartment()">Eliminar</button>
+    </div>
+  </div>
+</form>

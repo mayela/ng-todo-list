@@ -15,8 +15,7 @@ const httpOptions = {
 @Injectable()
 export class DepartmentService {
 
-  api_url = 'http://localhost:3000';
-  departmentsUrl = `${this.api_url}/departments`;
+  departmentsUrl = 'api/departments';
 
   constructor(private http: HttpClient) { }
 

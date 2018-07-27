@@ -1,4 +1,4 @@
 export class Department {
-    _id: string;
+    id: string;
     name: string;
 }

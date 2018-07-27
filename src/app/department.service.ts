@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class DepartmentService {
 
-  departmentsUrl = 'api/departments';
+  departmentsUrl = '/api/departments';
 
   constructor(private http: HttpClient) { }
 
